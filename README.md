@@ -37,6 +37,3 @@ hishimochiの競技プログラミングのライブラリです<br>
 - UnionFind
     - UnionFind
     - WeightedUnionFind
-
-- doubling(1回先が容易に求まる時のk回先を求める)
-
