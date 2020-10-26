@@ -9,3 +9,4 @@ hishimochiの競技プログラミングのライブラリです<br>
 - BellmanFord
 - WarshallFloyd
 - divisor(約数列挙)
+- PrimeFactorization(素因数分解)
