@@ -17,6 +17,9 @@ hishimochiの競技プログラミングのライブラリです<br>
     - isPrimeTable(素数判定表)
     - pow(繰り返し二乗法)
 
+- Mod
+    - MODint
+
 - UnionFind
     - UnionFind
 
