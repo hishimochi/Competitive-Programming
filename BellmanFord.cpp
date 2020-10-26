@@ -64,6 +64,7 @@ struct BellmanFord{
         for(int cur=t;cur!=-1;cur=prev[cur]){
             res.emplace_back(cur);
         }
+        reverse(res.begin(),res.end());
         return res;
     }
 };
