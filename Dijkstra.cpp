@@ -49,11 +49,9 @@ struct Dijkstra{
 
     //始点から頂点tへの経路を求める
     vector<int> route(int t){
-        vector<int> res(V);
-        int i=0;
+        vector<int> res;
         for(int cur=t;cur!=-1;cur=prev[cur]){
-            res[V-1-i]=cur;
-            i++;
+            res.emplace_back(cur);
         }
         return res;
     }
