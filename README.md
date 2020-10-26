@@ -7,3 +7,4 @@ hishimochiの競技プログラミングのライブラリです<br>
 - Dijkstra
 - UnionFind
 - BellmanFord
+- WarshallFloyd
