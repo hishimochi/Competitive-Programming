@@ -1,4 +1,4 @@
-//WarshallFloyd
+//WarshallFloyd法
 template<class T>
 struct WarshallFloyd{
     int V;

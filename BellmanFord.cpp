@@ -6,7 +6,7 @@ struct edge2{
     edge2(int f,int t,T c):from(f),to(t),cost(c){}
 };
 
-//BellmanFord
+//BellmanFord法
 //前提 edge2
 template<class T>
 struct BellmanFord{

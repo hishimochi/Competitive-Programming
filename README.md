@@ -8,3 +8,4 @@ hishimochiの競技プログラミングのライブラリです<br>
 - UnionFind
 - BellmanFord
 - WarshallFloyd
+- divisor(約数列挙)
