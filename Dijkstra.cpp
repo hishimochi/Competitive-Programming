@@ -1,54 +1,57 @@
 //edge1
 template<class T=long long>
 struct edge1{
-    long long to;
+    int to;
     T cost;
-    edge1(long long t,T c):to(t),cost(c){}
+    edge1(int t,T c):to(t),cost(c){}
 };
 
-//Dijkstra
+//Dijkstra法
 //前提 edge1
-//O(ElogV)
 template<class T>
 struct Dijkstra{
-    long long V;
-    const T tinf=numeric_limits<T>::max()/(T)(3);
+    int V;
+    T tinf=numeric_limits<T>::max();
     vector<vector<edge1<T>>> G;
     vector<T> dist;
-    vector<long long> prev;
+    vector<int> prev;
 
-    Dijkstra(long long n):V(n),G(n),dist(n),prev(n){}
+    //頂点数nのグラフを作成する
+    Dijkstra(int n):V(n),G(n),dist(n),prev(n){}
 
-    void add(long long x,long long y,T c){
+    //xからyへコストcの辺を追加する
+    void add(int x,int y,T c){
         edge1<T> e(y,c);
         G[x].emplace_back(e);
     }
 
-    void Build(long long x){
-        for(long long i=0;i<V;i++)dist[i]=tinf;
-        for(long long i=0;i<V;i++)prev[i]=-1;
+    //頂点xから各頂点への最小コストをdistに格納する
+    void Build(int x){
+        for(int i=0;i<V;i++)dist[i]=tinf;
+        for(int i=0;i<V;i++)prev[i]=-1;
         dist[x]=0;
-        priority_queue<pair<long long,long long>,vector<pair<long long,long long>>,greater<pair<long long,long long>>> Q;
-        Q.push(pair<T,long long>(0,x));
+        priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> Q;
+        Q.push(pair<T,int>(0,x));
         while(!Q.empty()){
-            pair<T,long long> p=Q.top();
+            pair<T,int> p=Q.top();
             Q.pop();
-            long long f=p.second;
+            int f=p.second;
             if(dist[f]<p.first)continue;
             for(auto e:G[f]){
                 if(dist[e.to]>dist[f]+e.cost){
                     dist[e.to]=dist[f]+e.cost;
-                    Q.push(pair<T,long long>(dist[e.to],e.to));
+                    Q.push(pair<T,int>(dist[e.to],e.to));
                     prev[e.to]=f;
                 }
             }
         }
     }
 
-    vector<long long> route(long long t){
-        vector<long long> res(V);
-        long long i=0;
-        for(long long cur=t;cur!=-1;cur=prev[cur]){
+    //始点からtへの経路を求める
+    vector<int> route(int t){
+        vector<int> res(V);
+        int i=0;
+        for(int cur=t;cur!=-1;cur=prev[cur]){
             res[V-1-i]=cur;
             i++;
         }
