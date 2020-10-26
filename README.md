@@ -16,9 +16,16 @@ hishimochiの競技プログラミングのライブラリです<br>
     - Eratosthenes(素数列挙)
     - isPrimeTable(素数判定表)
     - pow(繰り返し二乗法)
+    - getDigit(桁数)
+    - digitsum(各桁の和)
+
+- bit
+    - tools(忘れがちなbit操作系)
 
 - Mod
     - MODint
+    - modinv(逆元)
+    - modpow(繰り返し二乗法)
 
 - UnionFind
     - UnionFind
