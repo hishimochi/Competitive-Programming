@@ -27,6 +27,9 @@ hishimochiの競技プログラミングのライブラリです<br>
     - modinv(逆元)
     - modpow(繰り返し二乗法)
 
+- String
+    - Zalgorithm(最長共通接頭辞)
+
 - UnionFind
     - UnionFind
 
