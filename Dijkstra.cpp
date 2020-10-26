@@ -47,7 +47,7 @@ struct Dijkstra{
         }
     }
 
-    //始点からtへの経路を求める
+    //始点から頂点tへの経路を求める
     vector<int> route(int t){
         vector<int> res(V);
         int i=0;
