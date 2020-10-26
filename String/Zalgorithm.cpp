@@ -1,3 +1,4 @@
+//Zalgorithm
 //sとs[i:|S|-1]の最長共通接頭辞の長さを求める
 vector<int> Zalgorithm(const string& s){
     int n=s.size();
