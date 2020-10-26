@@ -36,5 +36,6 @@ hishimochiの競技プログラミングのライブラリです<br>
 
 - UnionFind
     - UnionFind
+    - WeightedUnionFind
 
 
