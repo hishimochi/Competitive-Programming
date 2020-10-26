@@ -30,6 +30,10 @@ hishimochiの競技プログラミングのライブラリです<br>
 - String
     - Zalgorithm(最長共通接頭辞)
 
+- vector
+    - unique(重複要素の削除)
+    - delete(要素の削除)
+
 - UnionFind
     - UnionFind
 
