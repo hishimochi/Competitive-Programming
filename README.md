@@ -41,7 +41,10 @@ hishimochiの競技プログラミングのライブラリです<br>
 - FenwickTree
     - FenwickTree
 
+- Segtree
+    - Segtree
+
 ## TODO
 - Compress2D
-- Segtree
+- LazySegtree
 - BIT2D
