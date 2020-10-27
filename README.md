@@ -42,3 +42,5 @@ hishimochiの競技プログラミングのライブラリです<br>
 ## TODO
 - Compress2D
 - Segtree
+- BIT
+- BIT2D
