@@ -1,16 +1,16 @@
 //立っているフラグの数
 //int
-int popcnt(int x){
+inline int popcnt(int x){
     return __builtin_popcount(x);
 }
 
 //long long
-int popcntll(long long x){
+inline int popcntll(long long x){
     return __builtin_popcountll(x);
 }
 
 //i番目のフラグをチェック
-bool bitcheck(long long bit,int i){
+inline bool bitcheck(long long bit,int i){
     return bit&(1LL<<i);
 }
 
