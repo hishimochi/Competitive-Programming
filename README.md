@@ -33,7 +33,12 @@ hishimochiの競技プログラミングのライブラリです<br>
 - vector
     - unique(重複要素の削除)
     - delete(要素の削除)
+    - Compress(座標圧縮)
 
 - UnionFind
     - UnionFind
     - WeightedUnionFind
+
+## TODO
+- Compress2D
+- Segtree
