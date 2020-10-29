@@ -8,6 +8,9 @@ hishimochiの競技プログラミングのライブラリです<br>
     - BellmanFord
     - WarshallFloyd
 
+- MST
+    - kruskal
+
 - Math
     - divisor(約数列挙)
     - PrimeFactorization(素因数分解)
