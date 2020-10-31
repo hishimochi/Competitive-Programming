@@ -46,8 +46,8 @@ hishimochiの競技プログラミングのライブラリです<br>
 
 - Segtree
     - Segtree
+    - LazySegtree
 
 ## TODO
 - Compress2D
-- LazySegtree
 - BIT2D
