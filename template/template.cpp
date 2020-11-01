@@ -25,7 +25,7 @@ template<class T,class U>ostream& operator<<(ostream& o,const pair<T,U>& p){
 #define CHA(...) char __VA_ARGS__;IN(__VA_ARGS__)
 #define LD(...) long double __VA_ARGS__;IN(__VA_ARGS__)
 #define VEC(T,name,size) vector<T>name(size);IN(name)
-#define VVEC(T,name,h,w) vector<vector<T>>name(h,vector<t>(w));IN(name)
+#define VVEC(T,name,h,w) vector<vector<T>>name(h,vector<T>(w));IN(name)
 void scan(int& a){cin>>a;}
 void scan(long long& a){cin>>a;}
 void scan(string& a){cin>>a;}
