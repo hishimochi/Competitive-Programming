@@ -105,10 +105,11 @@ template<class T,class U>bool chmax(T& a,U b){if(a<b){a=b;return true;}return fa
 template<class T>T pow_(T x,ll n){assert(n>=0);T res=1;while(n>0){if(n&1LL){res=res*x;}x=x*x;n>>=1;}return res;}
 
 //#include<atcoder/all>
-//#include <boost/multiprecision/cpp_int.hpp>
+//#include<boost/multiprecision/cpp_int.hpp>
 //using int128=boost::multiprecision::int128_t;
 
 signed main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    
 }

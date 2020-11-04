@@ -9,16 +9,19 @@ struct FenwickTree{
 
     //i番目の要素にxを加える
     void add(int i,T x){
-        for(int idx=i;idx>0;idx+=(idx&-idx)){
-            seg[idx]+=x;
+        i++;
+        while(i<=N){
+            seg[i]+=x;
+            i+=i&-i;
         }
     }
 
     //[0,i)の和
     T sum1(int i){
         T s(0);
-        for(int idx=i;idx>0;idx-=(idx&-idx)){
-            s+=seg[idx];
+        while(i>0){
+            s+=seg[i];
+            i-=i&-i;
         }
         return s;
     }
