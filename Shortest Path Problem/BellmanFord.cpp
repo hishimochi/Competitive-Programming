@@ -1,27 +1,29 @@
-//edge2
-template<class T=long long>
-struct edge2{
-    int from,to;
-    T cost;
-    edge2(int f,int t,T c):from(f),to(t),cost(c){}
-};
-
-//BellmanFord法
-//前提 edge2
+//BellmanFord
+//O(VE)
 template<class T>
 struct BellmanFord{
+    template<class U>
+    struct edge{
+        int from,to;
+        U cost;
+        edge(int f,int t,U c):from(f),to(t),cost(c){}
+    };
+
+    //頂点数
     int V;
+    //最短距離
     vector<T> d;
+
     vector<int> prev;
-    vector<edge2<T>> Es;
+    vector<edge<T>> Es;
     T tinf=numeric_limits<T>::max();
 
-    //頂点数vのグラフを作成
     BellmanFord(int v):V(v),d(v),prev(v){}
 
     //fからtへコストcの辺を追加する
     void add(int f,int t,T c){
-        edge2<T> E(f,t,c);
+        assert(f>=0&&f<V&&t>=0&&t<V);
+        edge<T> E(f,t,c);
         Es.emplace_back(E);
     }
 
@@ -56,6 +58,11 @@ struct BellmanFord{
             }
         }
         return c;
+    }
+
+    //始点から頂点tのコスト
+    T dist(int t){
+        return d[t];
     }
 
     //始点から頂点tへの経路を求める

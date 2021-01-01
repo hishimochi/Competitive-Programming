@@ -1,50 +1,55 @@
-//edge1
-template<class T=long long>
-struct edge1{
-    int to;
-    T cost;
-    edge1(int t,T c):to(t),cost(c){}
-};
-
 //Dijkstra法
-//前提 edge1
+//O
 template<class T>
 struct Dijkstra{
+    template<class U>
+    struct edge{
+        int to;
+        U cost;
+        edge(int t,U c):to(t),cost(c){}
+    };
+    //頂点数
     int V;
+
     T tinf=numeric_limits<T>::max();
-    vector<vector<edge1<T>>> G;
-    vector<T> dist;
+    vector<vector<edge<T>>> G;
+    vector<T> d;
     vector<int> prev;
 
-    //頂点数nのグラフを作成する
-    Dijkstra(int n):V(n),G(n),dist(n),prev(n){}
+    Dijkstra(int v):V(v),G(v),d(v),prev(v){}
 
     //xからyへコストcの辺を追加する
     void add(int x,int y,T c){
-        edge1<T> e(y,c);
+        assert(x>=0&&x<V&&y>=0&&y<V);
+        edge<T> e(y,c);
         G[x].emplace_back(e);
     }
 
-    //頂点xから各頂点への最小コストをdistに格納する
+    //頂点xから各頂点への最小コスト
     void Build(int x){
-        for(int i=0;i<V;i++)dist[i]=tinf;
+        for(int i=0;i<V;i++)d[i]=tinf;
         for(int i=0;i<V;i++)prev[i]=-1;
-        dist[x]=0;
+        d[x]=0;
         priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> Q;
         Q.push(pair<T,int>(0,x));
         while(!Q.empty()){
             pair<T,int> p=Q.top();
             Q.pop();
             int f=p.second;
-            if(dist[f]<p.first)continue;
+            if(d[f]<p.first)continue;
             for(auto e:G[f]){
-                if(dist[e.to]>dist[f]+e.cost){
-                    dist[e.to]=dist[f]+e.cost;
-                    Q.push(pair<T,int>(dist[e.to],e.to));
+                if(d[e.to]>d[f]+e.cost){
+                    d[e.to]=d[f]+e.cost;
+                    Q.push(pair<T,int>(d[e.to],e.to));
                     prev[e.to]=f;
                 }
             }
         }
+    }
+
+    //頂点tの最小コスト
+    T dist(int t){
+        return d[t];
     }
 
     //始点から頂点tへの経路を求める

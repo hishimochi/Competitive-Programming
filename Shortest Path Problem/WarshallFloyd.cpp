@@ -1,23 +1,26 @@
-//WarshallFloyd法
+//WarshallFloyd
+//O(V^3)
 template<class T>
 struct WarshallFloyd{
+    //頂点数
     int V;
+
     T tinf=numeric_limits<T>::max();
     vector<vector<T>> d;
     vector<vector<int>> to;
 
-    //頂点数nのグラフを作成する
-    WarshallFloyd(int n):V(n),d(n,vector<T>(n,tinf)),to(n,vector<int>(n)){
-        for(int i=0;i<n;i++){
+    WarshallFloyd(int v):V(v),d(v,vector<T>(v,tinf)),to(v,vector<int>(v)){
+        for(int i=0;i<v;i++){
             d[i][i]=0;
-            for(int j=0;j<n;j++){
+            for(int j=0;j<v;j++){
                 to[i][j]=j;
             }
         }
     }
 
-    //頂点xから頂点yへコストcの辺を追加する
+    //xからyへコストcの辺を追加する
     void add(int x,int y,T c){
+        assert(x>=0&&y>=0&&x<V&&y<V);
         d[x][y]=c;
     }
 
@@ -51,7 +54,9 @@ struct WarshallFloyd{
         for(int k=0;k<V;k++){
             for(int i=0;i<V;i++){
                 for(int j=0;j<V;j++){
-                    if(d[i][k]==tinf||d[k][j]==tinf)continue;
+                    if(d[i][k]==tinf||d[k][j]==tinf){
+                        continue;
+                    }
                     if(d[i][k]==-tinf||d[k][j]==-tinf){
                         d[i][j]=-tinf;
                         to[i][j]=to[i][k];
@@ -67,7 +72,6 @@ struct WarshallFloyd{
     }
 
     //xからyへのコストを求める
-    //-tinfの時、無限にコストを下げられる
     T dist(int x,int y){
         return d[x][y];
     }

@@ -1,33 +1,38 @@
 //FenwickTree
+//0-indexed
 template<class T>
 struct FenwickTree{
+    //FenwickTreeの大きさ
     int N;
-    vector<T> seg;
 
-    //0で初期化する
-    FenwickTree(int n):N(n),seg(n+1,0){}
+    vector<T> A;
+    FenwickTree():N(0){}
+    FenwickTree(int n):N(n),A(n,0){}
 
-    //i番目の要素にxを加える
+    //A[i]+=x
+    //O(log n)
     void add(int i,T x){
+        assert(0<=i&&i<N);
         i++;
         while(i<=N){
-            seg[i]+=x;
+            A[i-1]+=x;
             i+=i&-i;
         }
     }
 
-    //[0,i)の和
-    T sum1(int i){
-        T s(0);
+    //[a,b)の総和 O(log n)
+    T sum(int a,int b){
+        assert(0<=a&&a<=b&&b<=N);
+        return sum(b)-sum(a);
+    }
+
+    //[0,i)の総和 O(log n)
+    T sum(int i){
+        T s=0;
         while(i>0){
-            s+=seg[i];
+            s+=A[i-1];
             i-=i&-i;
         }
         return s;
-    }
-
-    //[a,b)の和
-    T sum2(int a,int b){
-        return sum1(b)-sum1(a);
     }
 };
