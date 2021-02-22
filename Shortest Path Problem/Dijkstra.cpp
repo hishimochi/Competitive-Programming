@@ -1,5 +1,4 @@
 //Dijkstra法
-//O
 template<class T>
 struct Dijkstra{
     template<class U>
